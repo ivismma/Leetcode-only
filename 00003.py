@@ -31,6 +31,3 @@ class Solution:
                 largestSize = len(strset)
         
         return largestSize
-
-
-print(Solution.lengthOfLongestSubstring(None, "dvdf"))
