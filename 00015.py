@@ -13,7 +13,7 @@ class Solution:
         while i < n-2:
             if i > 0 and nums[i] == nums[i-1]:
                 i += 1
-                continue # pular nº's repetidos
+                continue  # pular nº's repetidos
             
             j = i+1
             k = n-1
