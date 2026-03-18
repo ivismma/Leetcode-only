@@ -4,17 +4,18 @@ class Solution:
     def countPrimes(self, n: int) -> int:
         if n < 3:
             return 0
-
-        primes = [False, False] + [True]*(n-2)
-
-        # invalidar todos os pares:
-        for j in range(4, n, 2):
-            primes[j] = False
+        elif n == 3:
+            return 1
         
-        # para que eu possa pular de 2 em 2 aqui:
-        for number in range(3, int(sqrt(n))+1, 2):
-            if primes[number]:
-                for j in range(number*number, n, number):
+        primes = []
+        if n%2 == 0:
+            primes = [False]*2+[True]*2 + [False, True]*(n//2-2)
+        else:
+            primes = [False]*2+[True]*2 + [False, True]*(n//2-2) + [False]
+
+        for i in range(3, int(sqrt(n))+1,2):
+            if primes[i]:
+                for j in range(i*i, n, i):
                     primes[j] = False
-        
+
         return sum(primes)
